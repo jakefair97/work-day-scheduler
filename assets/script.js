@@ -5,13 +5,6 @@ var timeBlocks = $('.time-block');
 var buttons = $('.saveBtn');
 var currentHour = dayjs().format('HH');
 
-// testing
-console.log(buttons);
-
-console.log(buttons[0]);
-
-// console.log($(buttons[0]).parent()[0].id)
-
 $(function () {
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
@@ -20,9 +13,11 @@ $(function () {
   // time-block containing the button that was clicked? How might the id be
   // useful when saving the description in local storage?
   buttons.click(function() {
-      // console.log($(this).siblings("textarea")[0].value);
-      // console.log($(this).parent()[0].id)
-    localStorage.setItem($(this).parent()[0].id, $(this).siblings("textarea")[0].value)
+    // console.log($(this).siblings("textarea")[0].value);
+    // console.log($(this).parent()[0].id)
+    var hour = $(this).parent()[0].id;
+    var toDoItem = $(this).siblings("textarea")[0].value
+    localStorage.setItem(hour, toDoItem)
   })
 
 
@@ -37,8 +32,7 @@ $(function () {
       $(timeBlocks[i]).addClass('present');
     } else if (timeBlocks[i].id.substr(-2) < currentHour) {
       $(timeBlocks[i]).addClass('past');
-    }
-    else {
+    } else {
       $(timeBlocks[i]).addClass('future');
     }
   }
@@ -47,7 +41,16 @@ $(function () {
   // the values of the corresponding textarea elements. HINT: How can the id
   // attribute of each time-block be used to do this?
 
-  
+  // console.log($("#hour-09").children("textarea")[0].value)
+
+  if (localStorage.length > 0) {
+    for (var id in localStorage) {
+      if (localStorage.getItem(id) === null) {
+        break
+      }
+      $("#"+id).children("textarea")[0].value = localStorage.getItem(id);
+    }
+  }
 
   // TODO: Add code to display the current date in the header of the page.
   $('#currentDay').text(dayjs().format('dddd, MMMM Do'));
