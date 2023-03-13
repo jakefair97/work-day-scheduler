@@ -1,6 +1,3 @@
-// Wrap all code that interacts with the DOM in a call to jQuery to ensure that
-// the code isn't run until the browser has finished rendering all the elements
-// in the html.
 var timeBlocks = $('.time-block');
 var buttons = $('.saveBtn');
 var currentHour = dayjs().format('HH');
@@ -10,7 +7,7 @@ $(function () {
   buttons.click(function() {
     var hour = $(this).parent()[0].id;
     var toDoItem = $(this).siblings("textarea")[0].value
-    
+
     localStorage.setItem(hour, toDoItem)
   })
 
