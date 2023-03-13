@@ -11,7 +11,7 @@ You can visit the website [here](https://jakefair97.github.io/work-day-scheduler
 ![Code quiz home page](./assets/images/calendar-screenshot.png)
 
 ## Credits
-The app was designed by George (@Georgeyoo),matt fyke (@mfyke), and Courtney Mathena (@cmathena2u).
+The app was designed by George (@Georgeyoo), matt fyke (@mfyke), and Courtney Mathena (@cmathena2u).
 
 ## License
 Please refer to the LICENSE in the repo.
